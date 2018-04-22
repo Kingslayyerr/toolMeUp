@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +17,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // make the status bar white !! Info plist set UIViewControllerBasedStatusBarAppearance to false
+        UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent
+        
+        FirebaseApp.configure()
+        let myDatabase = Database.database().reference()
+        myDatabase.setValue("TOOLIFY DATABASE")
+        
         return true
     }
 
